@@ -90,6 +90,20 @@ class TextWrapTest extends TestCase {
     $this->assertEquals("foi", $ret[11]);
   }
   
+   /**
+   * Testa a quebra de linha para palavras muito curtas.
+   *
+   * @covers Galoa\ExerciciosPhp\TextWrap\Resolucao::textWrap
+   */
+  public function testForTinyWords() {
+    $ret = $this->resolucao->textWrap($this->tinyBaseString, 10);
+    $this->assertCount(5, $ret);
+    $this->assertEquals("Se me viu", $ret[0]);
+    $this->assertEquals("e não deu", $ret[1]);
+    $this->assertEquals("oi, não", $ret[2]);
+    $this->assertEquals("sei o que", $ret[3]);
+    $this->assertEquals("foi", $ret[4]);
+  }
   
 
 }
