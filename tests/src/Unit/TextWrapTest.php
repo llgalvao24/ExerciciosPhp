@@ -19,6 +19,7 @@ class TextWrapTest extends TestCase {
     $this->resolucao = new Resolucao();
     $this->baseString = "Se vi mais longe foi por estar de pé sobre ombros de gigantes";
     $this->tinyBaseString = "Se me viu e não deu oi, não sei o que foi";
+    $this->bigBaseString = "Paralelepípedo é uma palavra grande, mas Oftalmotorrinolaringologista é maior";
   }
 
   /**
@@ -103,6 +104,27 @@ class TextWrapTest extends TestCase {
     $this->assertEquals("oi, não", $ret[2]);
     $this->assertEquals("sei o que", $ret[3]);
     $this->assertEquals("foi", $ret[4]);
+  }
+  
+   /**
+   * Testa a quebra de linha para palavras muito longas.
+   *
+   * @covers Galoa\ExerciciosPhp\TextWrap\Resolucao::textWrap
+   */
+  public function testForBigWords() {
+    $ret = $this->resolucao->textWrap($this->bigBaseString, 7);
+    $this->assertCount(11, $ret);
+    $this->assertEquals("Paralel", $ret[0]);
+    $this->assertEquals("epípedo", $ret[1]);
+    $this->assertEquals(" é uma", $ret[2]);
+    $this->assertEquals("palavra", $ret[3]);
+    $this->assertEquals("grande,", $ret[4]);
+    $this->assertEquals("mas Oft", $ret[5]);
+    $this->assertEquals("almotor,", $ret[6]);
+    $this->assertEquals("rinolar", $ret[7]);
+    $this->assertEquals("ingolog", $ret[8]);
+    $this->assertEquals("ista é", $ret[9]);
+    $this->assertEquals("maior", $ret[10]);
   }
   
 
