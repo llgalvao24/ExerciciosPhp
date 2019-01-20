@@ -26,7 +26,7 @@ class Resolucao implements TextWrapInterface {
   		$j++;
   	}
   	else{
-  		for($i = 0; $i < strlen($auxText[0]); $i += $length){
+  		for($i = 0; $i < mb_strlen($auxText[0], 'utf8'); $i += $length){
   			$auxWord = mb_substr($auxText[0], $i, $length, 'utf-8'); //gets a substring $length longer
   			array_push($wrapped, $auxWord); //adds it in a new line
   			$j++;
