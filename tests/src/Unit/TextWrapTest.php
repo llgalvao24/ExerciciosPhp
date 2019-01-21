@@ -120,12 +120,11 @@ class TextWrapTest extends TestCase {
     $this->assertEquals("palavra", $ret[3]);
     $this->assertEquals("grande,", $ret[4]);
     $this->assertEquals("mas Oft", $ret[5]);
-    $this->assertEquals("almotor,", $ret[6]);
+    $this->assertEquals("almotor", $ret[6]);
     $this->assertEquals("rinolar", $ret[7]);
     $this->assertEquals("ingolog", $ret[8]);
     $this->assertEquals("ista é", $ret[9]);
     $this->assertEquals("maior", $ret[10]);
   }
   
-
 }
