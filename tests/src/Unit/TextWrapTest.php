@@ -96,7 +96,7 @@ class TextWrapTest extends TestCase {
    *
    * @covers Galoa\ExerciciosPhp\TextWrap\Resolucao::textWrap
    */
-  public function testForTinyWords() {
+  public function testForTinyWords2() {
     $ret = $this->resolucao->textWrap($this->tinyBaseString, 10);
     $this->assertCount(5, $ret);
     $this->assertEquals("Se me viu", $ret[0]);
